@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import { useWeb3 } from '@3rdweb/hooks'
 import { useEffect } from 'react'
-import { client } from '../lib/sanityclient'
+import { client } from '../lib/sanityClient'
 import toast, { Toaster } from 'react-hot-toast'
 
 const style = {
