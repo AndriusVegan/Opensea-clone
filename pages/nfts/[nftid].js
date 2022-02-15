@@ -25,8 +25,8 @@ const Nft = () => {
   const nftModule = useMemo(() => {
     if (!provider) return
     const sdk = new ThirdwebSDK(
-      provider.getSigner(),
-      'https://eth-rinkeby.alchemyapi.io/v2/hGw0TTlr4PN5UErueCKA4ZK-Ot7NG2mm'
+      provider.getSigner()
+      // 'https://eth-rinkeby.alchemyapi.io/v2/hGw0TTlr4PN5UErueCKA4ZK-Ot7NG2mm'
     )
     return sdk.getNFTModule('0xe31D3fCdC4Ab6b3815aA907349d2D7564dB0e09C')
   }, [provider])
@@ -48,8 +48,8 @@ const Nft = () => {
     if (!provider) return
 
     const sdk = new ThirdwebSDK(
-      provider.getSigner(),
-      'https://eth-rinkeby.alchemyapi.io/v2/hGw0TTlr4PN5UErueCKA4ZK-Ot7NG2mm'
+      provider.getSigner()
+      // 'https://eth-rinkeby.alchemyapi.io/v2/hGw0TTlr4PN5UErueCKA4ZK-Ot7NG2mm' was giving error, not needed
     )
 
     return sdk.getMarketplaceModule(
@@ -76,6 +76,11 @@ const Nft = () => {
             </div>
             <div className={style.detailsContainer}>
               <GeneralDetails selectedNft={selectedNft} />
+              <Purchase
+                isListed={router.query.isListed}
+                selectedNft={selectedNft}
+              />
+              marketPlaceModule={marketPlaceModule}
             </div>
           </div>
           <ItemActivity selectedNft={selectedNft} listings={listings} />
